@@ -20,4 +20,22 @@ describe('Airport',function(){
       expect(airport.landed_planes).not.toContain(plane.id);
     });
   });
-}); 
+
+  describe('full',function(){
+    it('states whether capacity is full',function(){
+      airport = new Airport(1);
+      plane.land(airport);
+      expect(airport.capacity).toEqual(1);
+      expect(airport.full()).toEqual(true);
+    });
+    it('full is false when not at capacity',function(){
+      expect(airport.full()).toEqual(false);
+    });
+  });
+  describe('contains?',function(){
+    it('states if airport contains a plane',function(){
+      plane.land(airport)
+      expect(airport.contains(plane.id)).toEqual(true);
+    });
+  });
+});
